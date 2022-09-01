@@ -1,0 +1,53 @@
+// making a change outside the bracket
+// Example/default ACLs for unrestricted connections.
+{
+	// making a change inside the bracket
+	// Declare static groups of users beyond those in the identity service.
+	"groups": {
+		"group:sre":  ["alice-tailscale@github", "bob-tailscale@github"],
+		"group:sre2": ["alice-tailscale@github", "bob-tailscale@github"],
+	},
+	// Declare tag owners.
+	"tagOwners": {
+		"tag:prod":       ["alice-tailscale@github"],
+		"tag:demo":       ["alice-tailscale@github"],
+		"tag:build":      ["alice-tailscale@github"],
+		"tag:test":       ["alice-tailscale@github"],
+		"tag:monitoring": ["alice-tailscale@github"],
+	},
+	// Access control lists.
+	"acls": [
+		//{ "action": "accept", "users": ["*"], "ports": ["*:*"] },
+		{
+			"action": "accept",
+			"src":    ["*"],
+			"dst":    ["autogroup:self:*"],
+		},
+		{
+			"action": "accept",
+			"src":    ["group:sre"],
+			"dst":    ["tag:prod:*"],
+		},
+	],
+	"ssh": [
+		{
+			"action": "check",
+			"src":    ["autogroup:members"],
+			"dst":    ["autogroup:self"],
+			"users":  ["autogroup:nonroot", "root"],
+		},
+		{
+			"action": "accept",
+			"src":    ["alice-tailscale@github"],
+			"dst":    ["tag:prod"],
+			"users":  ["autogroup:nonroot"],
+		},
+		{
+			"action":      "check",
+			"src":         ["group:sre"],
+			"dst":         ["tag:prod"],
+			"users":       ["root"],
+			"checkPeriod": "1m",
+		},
+	],
+}

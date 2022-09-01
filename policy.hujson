@@ -14,6 +14,7 @@
 		"tag:build":      ["alice-tailscale@github"],
 		"tag:test":       ["alice-tailscale@github"],
 		"tag:monitoring": ["alice-tailscale@github"],
+		"tag:prod-eu":    ["alice-tailscale@github"],
 	},
 	// Access control lists.
 	"acls": [
@@ -27,6 +28,11 @@
 			"action": "accept",
 			"src":    ["group:sre"],
 			"dst":    ["tag:prod:*"],
+		},
+		{
+			"action": "accept",
+			"src":    ["group:sre"],
+			"dst":    ["tag:prod-eu:*"],
 		},
 	],
 	"ssh": [

@@ -1,3 +1,5 @@
+// This tailnet's ACLs are maintained in https://github.com/tailscale-demo/tailnet-policy-file/edit/main/policy.hujson
+
 // Example/default ACLs for unrestricted connections.
 {
 	// Declare static groups of users beyond those in the identity service.

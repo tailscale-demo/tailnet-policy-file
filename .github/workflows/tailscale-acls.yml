@@ -1,4 +1,4 @@
-name: Tailscale ACL syncing
+name: Sync Tailscale ACLs
 
 on:
   push:

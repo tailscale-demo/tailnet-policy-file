@@ -14,7 +14,7 @@
 		"tag:build":      ["alice-tailscale@github"],
 		"tag:test":       ["alice-tailscale@github"],
 		"tag:monitoring": ["alice-tailscale@github"],
-		"tag:prod-eu": ["alice-tailscale@github"],
+		"tag:prod-eu":    ["alice-tailscale@github"],
 	},
 	// Access control lists.
 	"acls": [

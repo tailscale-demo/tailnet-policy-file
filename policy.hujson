@@ -1,9 +1,12 @@
+// This tailnet's ACLs are maintained in https://github.com/tailscale-demo/tailnet-policy-file/edit/main/policy.hujson
+
 // Example/default ACLs for unrestricted connections.
 {
 	// Declare static groups of users beyond those in the identity service.
 	"groups": {
 		"group:sre":  ["alice-tailscale@github", "bob-tailscale@github"],
 		"group:sre2": ["alice-tailscale@github", "bob-tailscale@github"],
+		"group:sre3": ["alice-tailscale@github", "bob-tailscale@github"],
 	},
 	// Declare tag owners.
 	"tagOwners": {

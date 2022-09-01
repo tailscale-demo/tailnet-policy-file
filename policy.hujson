@@ -1,7 +1,7 @@
-// making a change outside the bracket
+// This tailnet's ACLs are maintained in https://github.com/tailscale-demo/tailnet-policy-file/edit/main/policy.hujson
+
 // Example/default ACLs for unrestricted connections.
 {
-	// making a change inside the bracket
 	// Declare static groups of users beyond those in the identity service.
 	"groups": {
 		"group:sre":  ["alice-tailscale@github", "bob-tailscale@github"],
